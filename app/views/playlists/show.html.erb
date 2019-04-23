@@ -1,0 +1,13 @@
+<h1>Playlist: <%= @playlist.name %></h1>
+
+<div>
+  <h3>Songs:</h3>
+  <ul>
+    <% @playlist.songs.each do |song| %>
+      <li>
+        <%= song.name %> by <%= song.artist.try(:name) %>
+      </li>
+    <% end %>
+  </ul>
+
+</div>

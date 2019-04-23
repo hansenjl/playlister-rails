@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+
+  root: '/playlists'
   resources :artists
   resources :songs
   resources :playlists
