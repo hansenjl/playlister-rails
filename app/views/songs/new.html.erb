@@ -15,8 +15,17 @@
 
   <div>
     <label for="song_artist_id">Select an artist:</label>
-    <%= f.collection_select :artist_id, Artist.all, :id, :name%>
+    <%= f.collection_select :artist_id, Artist.all, :id, :name, prompt: true%>
   </div><br>
+
+  <div>
+    <h3>Or create a new artist:</h3>
+    <%= f.fields_for :artist, Artist.new do |a|%>
+        <%= a.label :name, "Artist Name:" %>
+        <%= a.text_field :name %>
+    <% end %>
+  </div>
+
 
   <%= f.submit %>
 

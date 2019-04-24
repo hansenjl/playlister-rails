@@ -4,6 +4,34 @@
 
   <%= f.label :name%>
   <%= f.text_field :name%>
+  <br>
+  <!-- Select already existing songs -->
+  <div>
+    <%= f.label :song_ids, "Songs:" %>
+    <%= f.collection_check_boxes(:song_ids, Song.all, :id, :name) %>
+  </div> <br>
+
+  <!-- Create new songs to add to our playlist -->
+
+
+  <%= f.fields_for :songs do |song_fields| %>
+   <h3>Or Add a new song: </h3>
+      <div>
+        <%= song_fields.label :name%>
+        <%= song_fields.text_field :name%>
+      </div><br>
+
+
+      <div>
+        <%= song_fields.label :genre%>
+        <%= song_fields.text_field :genre%>
+      </div><br>
+
+      <div>
+        <label for="song_artist_id">Select an artist:</label>
+        <%= song_fields.collection_select :artist_id, Artist.all, :id, :name%>
+      </div><br>
+  <% end %>
 
   <%= f.submit %>
 
