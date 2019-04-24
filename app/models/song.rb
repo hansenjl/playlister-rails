@@ -6,7 +6,10 @@ class Song < ApplicationRecord
   accepts_nested_attributes_for :artist, reject_if: proc { |attributes| attributes['name'].blank? }
 
  # def artist_attributes=(artist_params)
-    #custom attribute writer
- # end
+ #    if !artist_params[:name].empty?
+ #      self.artist_id = Artist.find_or_create_by(artist_params).id
+    # end
+# end
+
 
 end
